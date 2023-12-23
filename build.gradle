@@ -3,11 +3,25 @@ plugins {
 }
 
 group = 'org.kettingpowered'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation libs.bundles.jline.packed
+    implementation libs.terminalconsoleappender
+    implementation libs.jansi
+    implementation libs.jline
+}
 
+jar {
+    archiveBaseName.set('terminal-colors')
+    archiveClassifier.set('')
+    archiveExtension.set('jar')
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }

@@ -1,2 +1,22 @@
 rootProject.name = 'terminal-colors'
 
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            version('jline', '3.21.0')
+            library('jline-reader',   'org.jline', 'jline-reader'        ).versionRef('jline')
+            library('jline-terminal', 'org.jline', 'jline-terminal'      ).versionRef('jline')
+            library('jline-terminal-jansi', 'org.jline', 'jline-terminal-jansi').versionRef('jline')
+
+            bundle('jline-packed', [
+                'jline-reader',
+                'jline-terminal',
+                'jline-terminal-jansi'
+            ])
+
+            library('terminalconsoleappender', 'net.minecrell:terminalconsoleappender:1.2.0')
+            library('jansi', 'org.fusesource.jansi', 'jansi').version('1.18')
+            library('jline', 'jline', 'jline').version('2.13')
+        }
+    }
+}
