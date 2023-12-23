@@ -68,12 +68,8 @@ publishing {
                 classifier "javadoc"
                 extension "jar"
             }
-//        artifact jar
-//        groupId = "org.kettingpowered"
-//        artifactId = "terminal-colors"
-            version = System.getenv("VERSION")
             pom {
-                name = "KettingCore"
+                name = "terminal-colors"
                 description = "An API supported across all Ketting Versions"
                 url = "https://github.com/kettingpowered/terminal-colors"
                 licenses {
