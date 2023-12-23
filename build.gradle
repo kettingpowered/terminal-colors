@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'org.kettingpowered'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
