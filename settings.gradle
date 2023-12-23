@@ -3,10 +3,9 @@ rootProject.name = 'terminal-colors'
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
-            version('jline', '3.21.0')
-            library('jline-reader',   'org.jline', 'jline-reader'        ).versionRef('jline')
-            library('jline-terminal', 'org.jline', 'jline-terminal'      ).versionRef('jline')
-            library('jline-terminal-jansi', 'org.jline', 'jline-terminal-jansi').versionRef('jline')
+            library('jline-reader',         'org.jline', 'jline-reader'        ).version(ORG_JLINE_VERSION)
+            library('jline-terminal',       'org.jline', 'jline-terminal'      ).version(ORG_JLINE_VERSION)
+            library('jline-terminal-jansi', 'org.jline', 'jline-terminal-jansi').version(ORG_JLINE_VERSION)
 
             bundle('jline-packed', [
                 'jline-reader',
@@ -14,9 +13,15 @@ dependencyResolutionManagement {
                 'jline-terminal-jansi'
             ])
 
-            library('terminalconsoleappender', 'net.minecrell:terminalconsoleappender:1.2.0')
-            library('jansi', 'org.fusesource.jansi', 'jansi').version('1.18')
-            library('jline', 'jline', 'jline').version('2.13')
+            library('terminalconsoleappender', 'net.minecrell', 'terminalconsoleappender').version(TCA_VERSION)
+            library('jansi', 'org.fusesource.jansi', 'jansi').version(JANSI_VERSION)
+            library('jline', 'jline', 'jline').version(JLINE_VERSION)
+
+            bundle('terminal-colors', [
+                'terminalconsoleappender',
+                'jansi',
+                'jline'
+            ])
         }
     }
 }

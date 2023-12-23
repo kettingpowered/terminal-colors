@@ -14,20 +14,20 @@ repositories {
 configurations {
     configureEach {
         resolutionStrategy {
-            force 'org.fusesource.jansi:jansi:1.18'
+            force "org.fusesource.jansi:jansi:$JANSI_VERSION"
         }
     }
+
+    pack { transitive = false }
 }
 
 dependencies {
-    implementation libs.bundles.jline.packed
-    implementation libs.terminalconsoleappender
-    implementation libs.jansi
-    implementation libs.jline
+    pack libs.bundles.jline.packed
+    pack libs.bundles.terminal.colors
 }
 
 shadowJar {
-    configurations = [project.configurations.runtimeClasspath]
+    configurations = [project.configurations.pack]
 
     archiveBaseName.set('terminal-colors')
     archiveClassifier.set('')
