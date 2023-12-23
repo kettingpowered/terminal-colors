@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'org.kettingpowered'
-version = '1.0.0'
+version = System.getenv("VERSION") ?: 'dev-ver'
 
 repositories {
     mavenCentral()
